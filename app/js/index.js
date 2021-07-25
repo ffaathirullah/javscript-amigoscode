@@ -32,10 +32,19 @@ logTitle("fundamentals");
 //   log(index + " - " + n);
 // });
 
-function addNum(n1, n2) {
-  var result = n1 + n2;
-  return result;
-}
+// function addNum(n1, n2) {
+//   var result = n1 + n2;
+//   return result;
+// }
 
-var result = addNum(10, 2);
-log(result);
+// var result = addNum(10, 2);
+// log(result);
+
+var person = [
+  { name: "fachrul", age: 22 },
+  { name: "agus", age: 21 },
+];
+
+for (let i = 0; i < person.length; i++) {
+  log(person[i].name);
+}
