@@ -20,14 +20,22 @@ logTitle("fundamentals");
 // log(name.address.ttl);
 // log(name.name + " type = " + typeof name.name);
 
-var names = ["alex", "agus", "alex2"];
-log(names[1]);
-log(names.length);
+// var names = ["alex", "agus", "alex2"];
+// log(names[1]);
+// log(names.length);
 
-for (var n of names) {
-  log(n);
+// for (var n of names) {
+//   log(n);
+// }
+
+// names.forEach(function (n, index) {
+//   log(index + " - " + n);
+// });
+
+function addNum(n1, n2) {
+  var result = n1 + n2;
+  return result;
 }
 
-names.forEach(function (n, index) {
-  log(index + " - " + n);
-});
+var result = addNum(10, 2);
+log(result);
