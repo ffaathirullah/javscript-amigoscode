@@ -40,11 +40,21 @@ logTitle("fundamentals");
 // var result = addNum(10, 2);
 // log(result);
 
-var person = [
-  { name: "fachrul", age: 22 },
-  { name: "agus", age: 21 },
-];
+// var person = [
+//   { name: "fachrul", age: 22 },
+//   { name: "agus", age: 21 },
+// ];
 
-for (let i = 0; i < person.length; i++) {
-  log(person[i].name);
+// for (let i = 0; i < person.length; i++) {
+//   log(person[i].name);
+// }
+
+var number = 0;
+
+while (number < 5) {
+  number++;
+  if (number < 5) {
+    continue;
+  }
+  log(number);
 }
