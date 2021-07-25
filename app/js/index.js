@@ -49,12 +49,23 @@ logTitle("fundamentals");
 //   log(person[i].name);
 // }
 
-var number = 0;
+// var number = 0;
 
-while (number < 5) {
-  number++;
-  if (number < 5) {
-    continue;
-  }
-  log(number);
+// while (number < 5) {
+//   number++;
+//   if (number < 5) {
+//     continue;
+//   }
+//   log(number);
+// }
+
+var person = {
+  name: "fachrul",
+  age: 22,
+};
+
+if (person.age < 19) {
+  log("arg was true");
+} else {
+  log("arg was false");
 }
