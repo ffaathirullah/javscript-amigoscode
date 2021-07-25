@@ -59,13 +59,31 @@ logTitle("fundamentals");
 //   log(number);
 // }
 
-var person = {
-  name: "fachrul",
-  age: 22,
-};
+// var person = {
+//   name: "fachrul",
+//   age: 22,
+// };
 
-if (person.age < 19) {
-  log("arg was true");
-} else {
-  log("arg was false");
-}
+// if (person.age < 19) {
+//   log("arg was true");
+// } else {
+//   log("arg was false");
+// }
+
+var map = [1, 2, 3, 4, 5].map(function (n) {
+  return n * 2;
+});
+
+log(map);
+
+var filter = [1, 2, 3, 4, 5].filter(function (n) {
+  return n % 2 == 0;
+});
+
+log(filter);
+
+var reduce = [1, 2, 3, 4, 5].reduce(function (n, t) {
+  return n;
+});
+
+log(reduce);
