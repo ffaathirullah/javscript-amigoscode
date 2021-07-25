@@ -83,7 +83,7 @@ var filter = [1, 2, 3, 4, 5].filter(function (n) {
 log(filter);
 
 var reduce = [1, 2, 3, 4, 5].reduce(function (n, t) {
-  return n;
+  return n + t;
 });
 
 log(reduce);
