@@ -70,20 +70,29 @@ logTitle("fundamentals");
 //   log("arg was false");
 // }
 
-var map = [1, 2, 3, 4, 5].map(function (n) {
-  return n * 2;
-});
+// var map = [1, 2, 3, 4, 5].map(function (n) {
+//   return n * 2;
+// });
 
-log(map);
+// log(map);
 
-var filter = [1, 2, 3, 4, 5].filter(function (n) {
-  return n % 2 == 0;
-});
+// var filter = [1, 2, 3, 4, 5].filter(function (n) {
+//   return n % 2 == 0;
+// });
 
-log(filter);
+// log(filter);
 
-var reduce = [1, 2, 3, 4, 5].reduce(function (n, t) {
-  return n + t;
-});
+// var reduce = [1, 2, 3, 4, 5].reduce(function (n, t) {
+//   return n + t;
+// });
 
-log(reduce);
+// log(reduce);
+function callbackEX(name, callback) {
+  log(callback(name));
+}
+
+var callback = function (name) {
+  return "Hello " + name;
+};
+
+callbackEX("Fachrul ", callback);
