@@ -116,10 +116,26 @@ logTitle("syntax");
 // const addition = addNumber(...number);
 // log(addition);
 
-const adress = {
-  city: "LA",
-  country: "Indonesia",
+// const adress = {
+//   city: "LA",
+//   country: "Indonesia",
+// };
+
+// const person = { ...adress };
+// log(JSON.stringify(person));
+
+const hello = () => {
+  const es6 = "ES6";
+  return `Hello ${es6}`;
 };
 
-const person = { ...adress };
-log(JSON.stringify(person));
+const powers = [1, 2, 3, 4, 5].map((number, index) => Math.pow(number, index));
+
+const add = (n1, n2) => n1 + n2;
+
+const milesToKm = (miles) => miles * 1.60934;
+
+log(hello());
+log(powers);
+log(add(100, 100));
+log(milesToKm(300));
