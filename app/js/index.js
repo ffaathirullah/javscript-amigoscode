@@ -140,14 +140,40 @@ logTitle("syntax");
 // log(add(100, 100));
 // log(milesToKm(300));
 
-const person = {
-  name: "Alex",
-  cars: ["ferarry", "lambo"],
-  toString: function () {
-    // log(`${this.name} has ${this.cars}`);
-    this.cars.forEach((car) => {
-      log(`${this.name} has ${car}`);
-    });
-  },
-};
-person.toString();
+// const person = {
+//   name: "Alex",
+//   cars: ["ferarry", "lambo"],
+//   toString: function () {
+//     // log(`${this.name} has ${this.cars}`);
+//     this.cars.forEach((car) => {
+//       log(`${this.name} has ${car}`);
+//     });
+//   },
+// };
+// person.toString();
+
+// const pricePropName = "PRICE";
+
+// const calculator = (name, price) => {
+//   return {
+//     name,
+//     add(n1, n2) {
+//       return n1 + n2;
+//     },
+//     [pricePropName.toLowerCase()]: price,
+//   };
+// };
+
+// const calc = calculator("casio", 19.88);
+
+// log(calc.name);
+// log(calc.add(20, 20));
+// log(calc.price);
+
+const names = ["Anna", "Mariam", "Joe", "Mark", "Matt"];
+
+const [anna, , joe, ...restOfNames] = names;
+
+log(`${anna} ${joe}`);
+log(restOfNames);
+log(restOfNames.length);
