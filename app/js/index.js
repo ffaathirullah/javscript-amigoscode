@@ -178,44 +178,56 @@ logTitle("syntax");
 // log(restOfNames);
 // log(restOfNames.length);
 
-const getUser = () => {
-  return {
-    name: "John",
-    surname: "Doe",
-    gender: "male",
-    address: {
-      country: "United States",
-      city: "California",
-      postCode: "CA",
-      fullAddress: {
-        doorNumber: 22,
-        street: "LA st",
-      },
-    },
-    age: 29,
-  };
+// const getUser = () => {
+//   return {
+//     name: "John",
+//     surname: "Doe",
+//     gender: "male",
+//     address: {
+//       country: "United States",
+//       city: "California",
+//       postCode: "CA",
+//       fullAddress: {
+//         doorNumber: 22,
+//         street: "LA st",
+//       },
+//     },
+//     age: 29,
+//   };
+// };
+
+// const user = getUser();
+
+// // const name = user.name;
+// // const age = user.age;
+// // const country = user.address.country;
+// const doorNumber = user.address.fullAddress.doorNumber;
+
+// const {
+//   name,
+//   age,
+//   address: { country: theCountry },
+// } = user;
+
+// const {
+//   address: {
+//     fullAddress: { doorNumber: number },
+//   },
+// } = user;
+
+// log(name);
+// log(age);
+// log(theCountry);
+// log(doorNumber);
+
+const calculatePlay = (
+  yearSalary,
+  bonus = {
+    teamBonus: 0,
+    emplyoyeeBonus: 0,
+  }
+) => {
+  return yearSalary + bonus.teamBonus + bonus.emplyoyeeBonus;
 };
 
-const user = getUser();
-
-// const name = user.name;
-// const age = user.age;
-// const country = user.address.country;
-const doorNumber = user.address.fullAddress.doorNumber;
-
-const {
-  name,
-  age,
-  address: { country: theCountry },
-} = user;
-
-const {
-  address: {
-    fullAddress: { doorNumber: number },
-  },
-} = user;
-
-log(name);
-log(age);
-log(theCountry);
-log(doorNumber);
+log(calculatePlay(22000, { teamBonus: 10000, emplyoyeeBonus: 10000 }));
