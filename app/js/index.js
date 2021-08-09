@@ -102,16 +102,24 @@ logTitle("syntax");
 // //dapat menambah javascript operation
 // log(`Name : ${name} Age : ${age}`);
 
-const arrayTwo = ["said", "ismail", "aisha"];
-const concatArray = [...arrayTwo];
+// const arrayTwo = ["said", "ismail", "aisha"];
+// const concatArray = [...arrayTwo];
 
-concatArray.forEach((name) => {
-  log(name);
-});
+// concatArray.forEach((name) => {
+//   log(name);
+// });
 
-const addNumber = function (n1, n2, n3) {
-  return n1 + n2 + n3;
+// const addNumber = function (n1, n2, n3) {
+//   return n1 + n2 + n3;
+// };
+// const number = [1, 5, 9];
+// const addition = addNumber(...number);
+// log(addition);
+
+const adress = {
+  city: "LA",
+  country: "Indonesia",
 };
-const number = [1, 5, 9];
-const addition = addNumber(...number);
-log(addition);
+
+const person = { ...adress };
+log(JSON.stringify(person));
