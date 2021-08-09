@@ -4,7 +4,7 @@ require("styles/main.scss");
 import $ from "jquery";
 import { log, logTitle } from "logger";
 /* your imports */
-logTitle("fundamentals");
+logTitle("syntax");
 /* coding examples */
 
 // var name = {
@@ -97,7 +97,14 @@ logTitle("fundamentals");
 
 // callbackEX("Fachrul ", callback);
 
-const name = "Anna";
-const age = 21;
+// const name = "Anna";
+// const age = 21;
+// //dapat menambah javascript operation
+// log(`Name : ${name} Age : ${age}`);
 
-log(`Name : ${name} Age : ${age}`);
+const arrayTwo = ["said", "ismail", "aisha"];
+const concatArray = [...arrayTwo];
+
+concatArray.forEach((name) => {
+  log(name);
+});
