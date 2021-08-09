@@ -170,10 +170,52 @@ logTitle("syntax");
 // log(calc.add(20, 20));
 // log(calc.price);
 
-const names = ["Anna", "Mariam", "Joe", "Mark", "Matt"];
+// const names = ["Anna", "Mariam", "Joe", "Mark", "Matt"];
 
-const [anna, , joe, ...restOfNames] = names;
+// const [anna, , joe, ...restOfNames] = names;
 
-log(`${anna} ${joe}`);
-log(restOfNames);
-log(restOfNames.length);
+// log(`${anna} ${joe}`);
+// log(restOfNames);
+// log(restOfNames.length);
+
+const getUser = () => {
+  return {
+    name: "John",
+    surname: "Doe",
+    gender: "male",
+    address: {
+      country: "United States",
+      city: "California",
+      postCode: "CA",
+      fullAddress: {
+        doorNumber: 22,
+        street: "LA st",
+      },
+    },
+    age: 29,
+  };
+};
+
+const user = getUser();
+
+// const name = user.name;
+// const age = user.age;
+// const country = user.address.country;
+const doorNumber = user.address.fullAddress.doorNumber;
+
+const {
+  name,
+  age,
+  address: { country: theCountry },
+} = user;
+
+const {
+  address: {
+    fullAddress: { doorNumber: number },
+  },
+} = user;
+
+log(name);
+log(age);
+log(theCountry);
+log(doorNumber);
