@@ -87,12 +87,17 @@ logTitle("fundamentals");
 // });
 
 // log(reduce);
-function callbackEX(name, callback) {
-  log(callback(name));
-}
+// function callbackEX(name, callback) {
+//   log(callback(name));
+// }
 
-var callback = function (name) {
-  return "Hello " + name;
-};
+// var callback = function (name) {
+//   return "Hello " + "name";
+// };
 
-callbackEX("Fachrul ", callback);
+// callbackEX("Fachrul ", callback);
+
+const name = "Anna";
+const age = 21;
+
+log(`Name : ${name} Age : ${age}`);
