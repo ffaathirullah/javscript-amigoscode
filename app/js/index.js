@@ -3,6 +3,7 @@ require("styles/main.scss");
 /* js */
 import $ from "jquery";
 import { log, logTitle } from "logger";
+import { coroutine as co } from "bluebird";
 /* your imports */
 logTitle("syntax");
 /* coding examples */
@@ -264,19 +265,86 @@ logTitle("syntax");
 //     log(error);
 //   });
 
-const getRandomUser = (n) => {
-  const fetchRandomUser = fetch(`https://randomuser.me/api/?results=${n}`);
-  fetchRandomUser.then((data) => {
-    data.json().then((randomUsers) => {
-      log(JSON.stringify(randomUsers.results.length));
-      randomUsers.results.forEach((user) => {
-        const {
-          name: { first: fir },
-        } = user;
-        log(`${fir}`);
-      });
-    });
-  });
-};
+// const getRandomUser = (n) => {
+//   const fetchRandomUser = fetch(`https://randomuser.me/api/?results=${n}`);
+//   fetchRandomUser.then((data) => {
+//     data.json().then((randomUsers) => {
+//       log(JSON.stringify(randomUsers.results.length));
+//       randomUsers.results.forEach((user) => {
+//         const {
+//           name: { first: fir },
+//         } = user;
+//         log(`${fir}`);
+//       });
+//     });
+//   });
+// };
 
-getRandomUser(10);
+// getRandomUser(10);
+
+// const getNumbers = function* () {
+//   yield 1;
+//   yield "hello";
+//   yield true;
+//   return "gg";
+// };
+
+// const number = getNumbers();
+
+// log(number.next().value);
+// log(number.next().value);
+// log(number.next().value);
+// log(number.next().value);
+
+// const getNumbers = function* (numbers) {
+//   for (let i = 0; i < numbers.length; i++) {
+//     yield numbers[i];
+//   }
+// };
+
+// const getNumbersGen = getNumbers([1, 2, 3, 4, 5]);
+// const interval = setInterval(() => {
+//   const next = getNumbersGen.next();
+//   if (next.done) {
+//     log("this generator is done");
+//     clearInterval(interval);
+//   } else {
+//     const number = next.value;
+//     log(number);
+//   }
+// }, 1000);
+// import { couroutine as co } from "bluebird";
+
+// const getRandomUser = (n) => {
+//   const fetchRandomUser = fetch(`https://randomuser.me/api/?results=${n}`);
+//   fetchRandomUser.then((data) => {
+//     data.json().then((randomUsers) => {
+//       log(JSON.stringify(randomUsers.results.length));
+//       randomUsers.results.forEach((user) => {
+//         const {
+//           name: { first: fir },
+//         } = user;
+//         log(`${fir}`);
+//       });
+//     });
+//   });
+// };
+
+const getRandomUsers = co(function* (n) {
+  const fetchRandomUsers = yield fetch(
+    `https://randomuser.me/api/?results=${n}`
+  );
+  const data = yield fetchRandomUsers.json();
+  return data;
+});
+
+getRandomUsers(10)
+  .then((randomUsers) => {
+    randomUsers.results.forEach((user) => {
+      const {
+        name: { first: fir },
+      } = user;
+      log(`${fir}`);
+    });
+  })
+  .catch((err) => log);
