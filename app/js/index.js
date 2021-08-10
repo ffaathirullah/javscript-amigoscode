@@ -330,21 +330,37 @@ logTitle("syntax");
 //   });
 // };
 
-const getRandomUsers = co(function* (n) {
-  const fetchRandomUsers = yield fetch(
-    `https://randomuser.me/api/?results=${n}`
-  );
-  const data = yield fetchRandomUsers.json();
-  return data;
-});
+// const getRandomUsers = co(function* (n) {
+//   const fetchRandomUsers = yield fetch(
+//     `https://randomuser.me/api/?results=${n}`
+//   );
+//   const data = yield fetchRandomUsers.json();
+//   return data;
+// });
 
-getRandomUsers(10)
-  .then((randomUsers) => {
-    randomUsers.results.forEach((user) => {
-      const {
-        name: { first: fir },
-      } = user;
-      log(`${fir}`);
-    });
-  })
-  .catch((err) => log);
+// getRandomUsers(10)
+//   .then((randomUsers) => {
+//     randomUsers.results.forEach((user) => {
+//       const {
+//         name: { first: fir },
+//       } = user;
+//       log(`${fir}`);
+//     });
+//   })
+//   .catch((err) => log);
+
+async function logName(name) {
+  log(name);
+  //dapat yield menggunakan promise menggunakan awai
+  const transformName = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(name.toUpperCase()), 3000);
+  });
+
+  const result = await transformName;
+  log(result);
+  //return promise
+  return name;
+}
+logName("Fachrul").then((res) => {
+  log("result from async funtion = " + res);
+});
