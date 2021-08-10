@@ -231,19 +231,34 @@ logTitle("syntax");
 // };
 
 // log(calculatePlay(22000, { teamBonus: 10000, emplyoyeeBonus: 10000 }));
-const promise = new Promise((resolve, reject) => {
+const namespromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("data back from the server");
+    resolve(["fachrul", "asep", "udin"]);
   }, 3000);
 
   setTimeout(() => {
     reject("no data back from the server");
-  }, 2000);
+  }, 5000);
 });
 
-promise
-  .then((response) => {
-    log(response);
+const surnamespromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(["faathir", "bravo", "aass"]);
+  }, 3000);
+
+  setTimeout(() => {
+    reject("no data back from the server");
+  }, 5000);
+});
+
+Promise.all([namespromise, surnamespromise])
+  .then((data) => {
+    const [names, surnames] = data;
+    for (let i = 0; i < names.length; i++) {
+      const name = names[i];
+      const surname = surnames[i];
+      log(`${name} ${surname}`);
+    }
   })
   .catch((error) => {
     log(error);
