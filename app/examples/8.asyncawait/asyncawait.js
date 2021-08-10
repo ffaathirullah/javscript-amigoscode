@@ -18,28 +18,28 @@ const logName = async (name) => {
 
   // 2. return a promise
   return result;
-}
+};
 
-logName("antonio").then(res => {
+logName("antonio").then((res) => {
   log("result from async function = " + res);
 });
 
 ////////////
 
-const getRandomUsers = async n => {
+const getRandomUsers = async (n) => {
   try {
-    const fetchRandomUsers = await
-      fetch(`httpsrandomuser.me/api/?results=${n}`)
+    const fetchRandomUsers = await fetch(
+      `httpsrandomuser.me/api/?results=${n}`
+    );
     const data = await fetchRandomUsers.json();
-    data.results.forEach(user => {
-      const {gender, email} = user;
+    data.results.forEach((user) => {
+      const { gender, email } = user;
       log(`${gender} - ${email}`);
     });
     return data;
-  } catch(err) {
+  } catch (err) {
     log(err);
   }
-
-}
+};
 
 getRandomUsers(5);

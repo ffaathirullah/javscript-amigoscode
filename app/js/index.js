@@ -349,9 +349,9 @@ logTitle("syntax");
 //   })
 //   .catch((err) => log);
 
-async function logName(name) {
+const logName = async (name) => {
   log(name);
-  //dapat yield menggunakan promise menggunakan awai
+dapat yield menggunakan promise menggunakan awai
   const transformName = new Promise((resolve, reject) => {
     setTimeout(() => resolve(name.toUpperCase()), 3000);
   });
@@ -364,3 +364,19 @@ async function logName(name) {
 logName("Fachrul").then((res) => {
   log("result from async funtion = " + res);
 });
+
+const getRandomUsers = async (n) => {
+  const fetchRandomUsers = await fetch(
+    `https://randomuser.me/api/?results=${n}`
+  );
+  const data = await fetchRandomUsers.json();
+  data.results.forEach((user) => {
+      const {
+        name: { first: fir },
+      } = user;
+      log(`${fir}`);
+    });
+  return data;
+});
+
+getRandomUsers(10);
