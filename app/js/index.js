@@ -220,14 +220,31 @@ logTitle("syntax");
 // log(theCountry);
 // log(doorNumber);
 
-const calculatePlay = (
-  yearSalary,
-  bonus = {
-    teamBonus: 0,
-    emplyoyeeBonus: 0,
-  }
-) => {
-  return yearSalary + bonus.teamBonus + bonus.emplyoyeeBonus;
-};
+// const calculatePlay = (
+//   yearSalary,
+//   bonus = {
+//     teamBonus: 0,
+//     emplyoyeeBonus: 0,
+//   }
+// ) => {
+//   return yearSalary + bonus.teamBonus + bonus.emplyoyeeBonus;
+// };
 
-log(calculatePlay(22000, { teamBonus: 10000, emplyoyeeBonus: 10000 }));
+// log(calculatePlay(22000, { teamBonus: 10000, emplyoyeeBonus: 10000 }));
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("data back from the server");
+  }, 3000);
+
+  setTimeout(() => {
+    reject("no data back from the server");
+  }, 2000);
+});
+
+promise
+  .then((response) => {
+    log(response);
+  })
+  .catch((error) => {
+    log(error);
+  });
