@@ -349,34 +349,37 @@ logTitle("syntax");
 //   })
 //   .catch((err) => log);
 
-const logName = async (name) => {
-  log(name);
-dapat yield menggunakan promise menggunakan awai
-  const transformName = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(name.toUpperCase()), 3000);
-  });
+// const logName = async (name) => {
+//   log(name);
+//   // 1. we can yield promises using await
+//   const transformName = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(name.toUpperCase()), 1000);
+//   });
 
-  const result = await transformName;
-  log(result);
-  //return promise
-  return name;
-}
-logName("Fachrul").then((res) => {
-  log("result from async funtion = " + res);
-});
+//   const result = await transformName;
+
+//   // 2. return a promise
+//   return result;
+// };
+
+// logName("antonio").then((res) => {
+//   log("result from async function = " + res);
+// });
 
 const getRandomUsers = async (n) => {
-  const fetchRandomUsers = await fetch(
-    `https://randomuser.me/api/?results=${n}`
-  );
-  const data = await fetchRandomUsers.json();
-  data.results.forEach((user) => {
-      const {
-        name: { first: fir },
-      } = user;
-      log(`${fir}`);
+  try {
+    const fetchRandomUsers = await fetch(
+      `httpsrandomuser.me/api/?results=${n}`
+    );
+    const data = await fetchRandomUsers.json();
+    data.results.forEach((user) => {
+      const { gender, email } = user;
+      log(`${gender} - ${email}`);
     });
-  return data;
-});
+    return data;
+  } catch (err) {
+    log(err);
+  }
+};
 
-getRandomUsers(10);
+getRandomUsers(2);
