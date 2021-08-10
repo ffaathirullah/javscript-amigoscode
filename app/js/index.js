@@ -231,35 +231,52 @@ logTitle("syntax");
 // };
 
 // log(calculatePlay(22000, { teamBonus: 10000, emplyoyeeBonus: 10000 }));
-const namespromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(["fachrul", "asep", "udin"]);
-  }, 3000);
+// const namespromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(["fachrul", "asep", "udin"]);
+//   }, 3000);
 
-  setTimeout(() => {
-    reject("no data back from the server");
-  }, 5000);
-});
+//   setTimeout(() => {
+//     reject("no data back from the server");
+//   }, 5000);
+// });
 
-const surnamespromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(["faathir", "bravo", "aass"]);
-  }, 3000);
+// const surnamespromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(["faathir", "bravo", "aass"]);
+//   }, 3000);
 
-  setTimeout(() => {
-    reject("no data back from the server");
-  }, 5000);
-});
+//   setTimeout(() => {
+//     reject("no data back from the server");
+//   }, 5000);
+// });
 
-Promise.all([namespromise, surnamespromise])
-  .then((data) => {
-    const [names, surnames] = data;
-    for (let i = 0; i < names.length; i++) {
-      const name = names[i];
-      const surname = surnames[i];
-      log(`${name} ${surname}`);
-    }
-  })
-  .catch((error) => {
-    log(error);
+// Promise.all([namespromise, surnamespromise])
+//   .then((data) => {
+//     const [names, surnames] = data;
+//     for (let i = 0; i < names.length; i++) {
+//       const name = names[i];
+//       const surname = surnames[i];
+//       log(`${name} ${surname}`);
+//     }
+//   })
+//   .catch((error) => {
+//     log(error);
+//   });
+
+const getRandomUser = (n) => {
+  const fetchRandomUser = fetch(`https://randomuser.me/api/?results=${n}`);
+  fetchRandomUser.then((data) => {
+    data.json().then((randomUsers) => {
+      log(JSON.stringify(randomUsers.results.length));
+      randomUsers.results.forEach((user) => {
+        const {
+          name: { first: fir },
+        } = user;
+        log(`${fir}`);
+      });
+    });
   });
+};
+
+getRandomUser(10);
